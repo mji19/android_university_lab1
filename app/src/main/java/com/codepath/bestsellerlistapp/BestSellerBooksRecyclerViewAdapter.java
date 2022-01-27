@@ -37,6 +37,10 @@ public class BestSellerBooksRecyclerViewAdapter extends RecyclerView.Adapter<Bes
         holder.mItem = books.get(position);
         holder.mBookTitle.setText(books.get(position).title);
         holder.mBookAuthor.setText(books.get(position).author);
+        Glide.with(holder.mView)
+                .load(books.get(position).bookImageUrl)
+                .centerInside()
+                .into(holder.imageView3);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +71,8 @@ public class BestSellerBooksRecyclerViewAdapter extends RecyclerView.Adapter<Bes
             mBookTitle = (TextView) view.findViewById(R.id.book_title);
             mBookAuthor = (TextView) view.findViewById(R.id.book_author);
         }
+
+
 
         @Override
         public String toString() {
